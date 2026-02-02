@@ -14,6 +14,7 @@ define alhvi = False
 define oscar = False
 define edificioi = False
 define pasalidoring = False
+define alux = False
 
 
 # El juego comienza aquí.
@@ -34,7 +35,7 @@ label start:
 
     # Presenta las líneas del diálogo.
 
-    j "¡Hola! Bienvenido a la UVG"
+    j "¡Hola! Te doy la bienvenida a la UVG"
 
     j "Dicen que en esta universidad está escondida una máscara mágica"
 
@@ -52,7 +53,7 @@ label start:
 
     j "Búsca a los alumnos de Jack Schuster y a los organizadores del jam para saber dónde está la máscara"
 
-    j "Te doy la primera pisa, busca el laboratorio de entomología"
+    j "Te doy la primera pista, busca el laboratorio de entomología"
 
     
 
@@ -91,8 +92,8 @@ label start:
 
         if not alhvi:
             show alhvi base
-            a "¡Hola! Bienvenido a la UVG"
-            a "¿Te puedo ayudar con algo"
+            a "¡Hola! Qué gusto tenerte por acá"
+            a "¿Te puedo ayudar con algo?"
 
 
         label alhvi_conversation:
@@ -111,7 +112,7 @@ label start:
                     a "Recuerdo que a veces llevaba unos títeres a la clase. Tenía dos. Uno se llamaba Jorge el Pastelero y otro se llamaba Odo"
                     $ titeres = True
             
-                "¿Qué clase deba Schuster?" if titeres:
+                "¿Qué clase daba Schuster?" if titeres:
                     show alhvi feliz
                     a "A mí me dio Biología General, pero daba muchas clases. Él era entomólogo"
                     "¿Qué es entomología?"
@@ -121,10 +122,26 @@ label start:
                     a "Entomología es una especialización de la zoología que estudia a los insectos"
                     $entomologia = True
                     show alhvi feliz
-                    a "A Schuster le gustaban mucho los escarabajos, estos son del género pasalidae y  les decimos pasálidos"
+                    a "A Schuster le gustaban mucho los escarabajos de la familia passalidae, les decimos pasálidos"
                     $ pasalido = True
                     show alhvi aja
                     a "En UVG tenemos varias investigaciones relacionadas a insectos"
+
+                "¿Qué más me cuentas del Doctor Schuster" if titeres and not alux:
+                    show alhvi feliz
+                    a "Un dato interesante es que Schuster tocaba en el grupo Alux Nahual"
+                    show alhvi brava
+                    a "¿Si sabés qué es Alux Nahual verdad?"
+                    show alhvi base
+                    a "Bueno, igual buscalo en Spotify, tienen una canción que se llama \"Como un duende\" "
+                    show alhvi feliz
+                    a "Y otra que se llama \"Alto al fuego\""
+                    $ alux = True
+                    show alhvi base
+                    a "Por cierto como otro dato random, hay otro profesor, Ernesto Arredondo, que cantaba en un grupo que se llamaba La Tona"
+                    show alhvi feliz
+                    a "de ellos me gusta una canción que se llama \"Tanto que no sabes\""
+
 
                 "Regresar con Jack":
                     jump jackback
@@ -135,7 +152,7 @@ label start:
     label oscar:
         scene bg parqueo
         show oscar base
-        o "¡Hola! Bienvenido al global game jam"
+        o "¡Hola! Gracias por venir a Global Game Jam"
         show oscar feliz
         o "¿Te puedo ayudar con algo?"
 

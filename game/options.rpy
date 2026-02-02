@@ -24,13 +24,18 @@ define gui.show_name = True
 
 ## Versión del juego.
 
-define config.version = "1.0"
+define config.version = "1.1"
 
 
 ## Texto situado en la pantalla 'Acerca de' del juego. Sitúa el texto entre
 ## comillas triples y deja una línea en blanco entre párrafos.
 
 define gui.about = _p("""
+    Créditos:\n
+        Historia y programación : Alhvi Balcárcel\n
+        Fotografías: Lourdes Muñoz\n
+        Fotografías de Jack: Redes sociales UVG\n
+        Actuación: Oscar Morales y Alhvi Balcárcel
 """)
 
 
@@ -46,9 +51,9 @@ define build.name = "LaMascaradeJack"
 ## muestran al reproductor de forma predeterminada. Establecer uno de estos en
 ## False ocultará el mezclador apropiado. 
 
-define config.has_sound = True
-define config.has_music = True
-define config.has_voice = True
+define config.has_sound = False
+define config.has_music = False
+define config.has_voice = False
 
 
 ## Para permitir al usuario probar el volumen de los canales de sonido o voz,
